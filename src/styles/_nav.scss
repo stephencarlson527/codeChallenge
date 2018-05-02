@@ -1,0 +1,28 @@
+// Navigation Styles
+#ws-nav {
+	background-color: #333;
+	margin: 10px auto;
+	ul {
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		li {
+			background-color: #333;
+			padding: 10px 0px;
+			display: inline-block;
+			margin-left: 15px;
+			font-size: 11px;
+			text-transform: uppercase;
+			&:first-child {
+				margin-left: 0px;
+			}
+			a {
+				color: #fff;
+				padding: 0px;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

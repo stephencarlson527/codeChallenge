@@ -1,0 +1,22 @@
+/*primary toys r us blue*/
+$ws-blue: #4254BA;
+/*secondary toys r us blue*/
+$ws-red: #e81818;
+$ws-grey: #505050;
+// the team needs to revise these sizes to create a standard
+$breakpoints: (
+    "mobile":        736px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px
+);
+
+$h1: 32px;
+$h2: 24px;
+$h3: 21px;
+$h4: 18px;
+$p: 14px;
+$font-large: 5em;
+$font-medium: 3em;
+$font-small: 1.5em;

@@ -1,0 +1,259 @@
+// === Standard layout & styling
+@mixin archer-normal($important: null) {
+  font-family: 'ArcherMedium', 'Arial', serif $important;
+  font-weight: normal;
+}
+
+@mixin archer-bold($important: null) {
+  font-family: 'ArcherSemiBold', 'Arial', serif $important;
+  font-weight: normal;
+}
+
+@mixin avenir-normal($important: null) {
+  font-family: 'AvenirNextRegular', 'Arial', sans-serif $important;
+  font-weight: normal;
+}
+
+@mixin avenir-bold($important: null) {
+  font-family: 'AvenirNextDemiBold', 'Arial', sans-serif $important;
+  font-weight: normal;
+}
+@mixin box-sizing($value){
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  box-sizing: $value;
+}
+// Example of use - @include box-sizing(border-box);
+@mixin box-shadow($value){
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+@mixin border-radius($value){
+  -moz-border-radius: $value;
+  -webkit-radius: $value;
+  border-radius: $value;
+}
+@mixin pseudo($display: table, $clear: both, $content: ''){
+    content: $content;
+    display: $display;
+    clear: $clear;
+}
+@mixin banner($url){
+  background-image: url($url);
+}
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+    @include pseudo($pos: $position);
+    width: 0;
+    height: 0;
+    @if $round {
+        border-radius: 3px;
+    }
+    @if $direction == down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round( $size / 2.5 );
+    } @else if $direction == up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round( $size / 2.5 );
+    } @else if $direction == right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    } @else if  $direction == left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+}
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media screen and (#{$type}-device-width: $width) {
+            @content;
+        }
+    }
+}
+@mixin display($value){
+  display: $value;
+  display: -webkit-$value;
+  display: -ms-$value;
+  display: -o-$value;
+  display: -moz-$value;
+}
+
+@mixin background-size($value){
+  -o-background-size: $value;
+  -webkit-background-size: $value;
+  -moz-background-size: $value;
+  background-size: $value;
+}
+@mixin background-position($value){
+  -o-background-position: $value;
+  -webkit-background-position: $value;
+  -moz-background-position: $value;
+  background-position: $value;
+}
+@mixin background-position-x($value){
+  -o-background-position-x: $value;
+  -webkit-background-position-x: $value;
+  -moz-background-position-x: $value;
+  background-position-x: $value;
+}
+@mixin background-position-y($value){
+  -o-background-position-y: $value;
+  -webkit-background-position-y: $value;
+  -moz-background-position-y: $value;
+  background-position-y: $value;
+}
+// 3 point gradient
+@mixin filter-gradient($color1,$color2,$color3,$direction) {
+  background: $color1;
+  background: -moz-linear-gradient($direction, $color1 0%, $color2 71%, $color3 100%);
+  background: -webkit-gradient(linear, color-stop(0%, $color1), color-stop(71%, $color2), color-stop(100%, $color3));
+  background: -webkit-linear-gradient($direction, $color1 0%, $color2 71%, $color3 100%);
+  background: -o-linear-gradient($direction, $color1 0%, $color2 71%, $color3 100%);
+  background: -ms-linear-gradient($direction, $color1 0%, $color2 71%, $color3 100%);
+  background: linear-gradient(to right, $color1 0%, $color2 71%, $color3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color3', GradientType=1 );
+}
+
+// === Animations
+
+@mixin transition($value) {
+  -webkit-transition: all $value ease-in-out;
+  -moz-transition: all $value ease-in-out;
+  -o-transition: all $value ease-in-out;
+  -ms-transition: all $value ease-in-out;
+  transition: all $value ease-in-out;
+}
+@mixin height($value) {
+  -webkit-transition: height $value ease-in-out;
+  -moz-transition: height $value ease-in-out;
+  -o-transition: height $value ease-in-out;
+  -ms-transition: height $value ease-in-out;
+  transition: height $value ease-in-out;
+}
+
+@mixin fadein($value) {
+  -webkit-transition: opacity $value ease-in;
+  -moz-transition: opacity $value ease-in;
+  -o-transition: opacity $value ease-in;
+  -ms-transition: opacity $value ease-in;
+  transition: opacity $value ease-in;
+}
+@mixin fadeout($value) {
+  -webkit-transition: opacity $value ease-out;
+  -moz-transition: opacity $value ease-out;
+  -o-transition: opacity $value ease-out;
+  -ms-transition: opacity $value ease-out;
+  transition: opacity $value ease-out;
+}
+// Transform can wrap all other animations... Example of multiple rule use - 
+// @include transform(translate(0px,0px) rotate(0deg) scale3d(.85,.85,1));
+@mixin transform($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin transform-x($transforms) {
+     -moz-transform: scaleX($transforms);
+       -o-transform: scaleX($transforms);
+      -ms-transform: scaleX($transforms);
+  -webkit-transform: scaleX($transforms);
+          transform: scaleX($transforms);
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}));
+}
+ 
+// scale
+@mixin scale($x,$y) {
+   @include transform(scale($x,$y));
+} 
+//scale 3d
+@mixin scale3d($x, $y, $z) {
+   @include transform(scale3d($x, $y, $z));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    -moz-transform-origin: $origin;
+       -o-transform-origin: $origin;
+      -ms-transform-origin: $origin;
+  -webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+@mixin animation($str){
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};  
+}
+@mixin animation-delay($value){
+  -o-animation: $value;
+  -moz-animation: $value;
+  -webkit-animation: $value;
+  animation: $value;
+}
+@mixin keyframes($value) {
+  @-webkit-keyframes #{$value} {
+    @content;
+  }
+  @-moz-keyframes #{$value} {
+    @content;
+  }
+  @-o-keyframes #{$value} {
+    @content;
+  }
+  @keyframes #{$value} {
+    @content;
+  }
+}
+
+// === Filters
+
+@mixin filter($value){
+  -o-filter: $value;
+  -ms-filter: $value;
+  -webkit-filter: $value;
+  -moz-filter: $value;
+  filter: $value;
+}
+
+// === Browser mods
+
+@mixin appearance($value){
+  -moz-appearance: $value;
+  -webkit-appearance: $value;
+  appearance: $value;
+}
+@mixin user-select($value){
+  -webkit-touch-callout: $value;
+  -webkit-user-select: $value;
+  -khtml-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}

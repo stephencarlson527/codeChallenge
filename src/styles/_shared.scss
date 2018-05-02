@@ -1,0 +1,65 @@
+@import 'placeholders';
+p {
+  font-size: $p;
+}
+h1, h3 {
+  font-family: "Times New Roman",Georgia,serif;
+}
+h2 {
+  font-size: 18px;
+}
+li {
+  list-style: none;
+}
+ul {
+  padding-left: 0;
+}
+.container {
+  width: 100% !important;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+}
+.ws-btn {
+  color: #fff;
+  width: 200px;
+}
+.ws_show {
+  display: block !important;
+}
+.row {
+  max-width: 1366px !important;
+  margin: 2% 5%;
+  position: relative;
+  padding: 0 2%;
+  @include mq(tablet-wide) { // 1024px
+    margin: 0 auto ;
+  }
+}
+.no-rpt {
+  background-repeat: no-repeat;
+}
+#ws-nav {
+  display: none;
+}
+@import 'nav';
+@import 'crumbs';
+@import 'carousel';
+// OVER RIDES
+@import 'mobile';
+@media screen and (min-width: 988px) {
+  @import 'tablet';
+  #ws-nav {
+  display: block;
+}
+}
+@media screen and (min-width: 1024px) {
+  @import 'desktop';
+}
+
+
+

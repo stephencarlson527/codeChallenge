@@ -1,0 +1,107 @@
+	
+// over rides 
+.col-md-6, .col-xs-12 {
+  padding: 0px;
+}
+
+//Logo
+#ws-logo {
+	.ws-img {
+		width: 237px;
+		height: 110px;
+		background-image: url(../images/logo.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+		margin: 0 auto;
+	}
+}
+// info
+#ws-info {
+	h1 {
+		font-size: $h1;
+	}
+	#ws-descrip {			
+		li {
+			list-style-type: disc;
+			list-style-position: inside;
+		}
+	}
+	#ws-qty input{
+		width: 50px;
+	}
+	#ws-atc {
+		margin-top: 20px;
+		padding: 15px;
+		width: 200px;
+		text-align: center;
+  	background-color: $ws-red;
+  	&:hover {
+  		cursor: pointer;
+  		background-color: #BA2F28;
+  	}
+	}
+}
+
+// Drawers
+.ws-drawer {
+	h3 {
+		cursor: pointer;
+	}
+	.ws-expanded h3{
+
+		&:before {
+			content:  url(../images/arrow-expanded.png);
+			height: 14px;
+			width: 14px;
+		}
+	}
+	.ws-collapsed h3{
+		&:before {
+			content:  url(../images/arrow-collapsed.png);
+			height: 14px;
+			width: 14px;
+		}
+	}
+	.ws-content {
+		display: none;
+	}
+}
+#ws-modal {
+	@extend %modal;
+	h2 {
+		text-align: center;
+		font-size: $h2;
+		margin-top: 20%;
+	}
+	.ws-modal-close {
+		width: 100%;
+		position: absolute;
+		bottom: 30%;
+		height: auto;	
+		text-align: center;
+		.ws-btn {
+			margin: 0 auto;
+			width: 200px;
+			background-color: $ws-red;
+			cursor: pointer;
+			padding: 15px;
+			
+		}
+	}
+	
+}
+
+footer {
+	border-top: 1px solid #000;
+	background-color: #ddd;
+	ul {
+		padding-top: 10px !important; padding-bottom: 10px !important;
+		li {
+			display: inline-block;
+			a {
+				color: #8E94A3;
+				font-size: 12px;
+			}
+		}
+	}
+}

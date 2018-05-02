@@ -1,0 +1,16 @@
+// nav
+#ws-nav {
+	ul {
+		li {
+			&:nth-child(10) {
+				padding-right: 10px;
+			}
+			&.ws-blue {
+				background-color: $ws-blue;
+				margin-left: 0px;
+				padding: 10px;
+				border-left: 3px solid white;
+			}
+		}
+	}
+}
