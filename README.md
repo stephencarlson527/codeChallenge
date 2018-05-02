@@ -5,7 +5,7 @@
 
 * To Create a product page based off of a mockup from williams sonoma
 
-### How do see the dev files? ###
+### How can I see the dev files? ###
 
 * git clone
 * cd codeChallenge
