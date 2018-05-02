@@ -1,24 +1,15 @@
 # README #
-* This is a TRU Web Dev Landing Page Process Repo. Please use this as a local dev environment for landing page work
+* I created this gulp process while at Toys R Us for the entire web dev team, but it can be re-purposed for any Front End Project
 
 ### What is this repository for? ###
 
-* To Create a base version for Updating and creating landing pages
+* To Create a product page based off of a mockup from williams sonoma
 
-### How do I get set up? ###
+### How can I see the dev files? ###
 
 * git clone
+* cd codeChallenge
+* git checkout dev
 * npm install
-
-### To start working locally ###
-
 * npm start
-* Re-name any files that say yourName in them.
-* go into styles/landingGlobal.scss and rename your wrapping div ID to whatever you want so that your code is encapsulated.
-* If you have images, put them in the images folder
-
-
-### To Build and Export your LP package ###
-
-* gulp build
 
